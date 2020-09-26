@@ -1,0 +1,5 @@
+#Q1:implement histogram of 2D image or grayscale image
+using numpy & matplotlib.
+
+#Q2:implement histogram of 3D image or grayscale image
+using numpy & matplotlib
