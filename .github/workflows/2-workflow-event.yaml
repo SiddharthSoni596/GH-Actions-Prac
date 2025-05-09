@@ -1,0 +1,9 @@
+name: 2-workflow-event
+on: push
+
+jobs:
+  echo-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shout Event Name
+        run: echo "Event used to trigger me is ${{ github.event_name }}"
