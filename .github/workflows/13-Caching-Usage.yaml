@@ -28,7 +28,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version : ${{ inputs.node-version }}
+      - name: Download Cached Dependencies
+        uses: actions/cache@v4
+        if: ${{ inputs.use-cache }}
+        id: cache
+        with:
+          path: 13-caching/react-app/node_modules
+          key: my-dep-hash-key-${{ hashFiles('13-caching/react-app/package-lock.json') }}
       - name: Install Dependencies
+        if: ${{ steps.cache.output.cache-hit != 'true' }}
         run: npm ci
       - name: Run Tests
         run: npm run test
